@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+  
+* {
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Raleway', sans-serif;
+}
+
+.container-login {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.container-login:hover .top:before,
+.container-login:hover .top:after,
+.container-login:hover .bottom:before,
+.container-login:hover .bottom:after,
+.container-login:active .top:before,
+.container-login:active .top:after {
+  margin-left: 200px;
+  transform-origin: -200px 50%;
+  transition-delay: 0s;
+}
+.container-login:hover .center {
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+.container-login:active .center {
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+.top:before,
+.top:after,
+.bottom:before,
+.bottom:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 200vmax;
+  height: 200vmax;
+  top: 50%;
+  left: 50%;
+  margin-top: -100vmax;
+  transform-origin: 0 50%;
+  transition: all 0.5s cubic-bezier(0.445, 0.05, 0, 1);
+  z-index: 10;
+  opacity: 0.65;
+  transition-delay: 0.2s;
+}
+
+.top:before {
+  transform: rotate(45deg);
+  background: #e46569;
+}
+.top:after {
+  transform: rotate(135deg);
+  background: #ecaf81;
+}
+
+.bottom:before {
+  transform: rotate(-45deg);
+  background: #60b8d4;
+}
+
+.bottom:after {
+  transform: rotate(-135deg);
+  background: #3745b5;
+}
+
+.center {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  margin-left: -200px;
+  margin-top: -200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.445, 0.05, 0, 1);
+  transition-delay: 0s;
+  color: #333;
+}
+.center input {
+  width: 100%;
+  padding: 15px;
+  margin: 5px;
+  border-radius: 1px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+    </style>
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+  <div class="container-login" onclick>
+    <div class="top"></div>
+    <div class="bottom"></div>
+    <div class="center">
+      <h2>Đăng nhập</h2>
+      <input type="number" id ="ma_sv" placeholder="Mã sinh viên" />
+      <input type="string" id="pass" placeholder="Mật khẩu" />
+      <!-- <h2>&nbsp;</h2>-->
+      <div class="control">
+        <input type="submit" class="btn" value="Login" onclick="displayValues()"/>
+        <span id="errorMessage" style="color: red" ></span>
+      </div> 
+    </div>
+  </div>
+  
+  <script>
+          function displayValues() {
+              var ma_sv = document.getElementById("ma_sv").value;
+              var pass = document.getElementById("pass").value;
+  
+              var message = "Mã sinh viên: " + ma_sv + ", Mật khẩu: " + pass;
+              alert(message);
+          }
+      </script>
+  </body>
+</html>

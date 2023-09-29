@@ -8,7 +8,7 @@ namespace QLSV.Models
                 : base(options)
         { }
         public DbSet<Khachhang> _khang { get; set; } //_khang này phải trùng với tên bảng trên sql
-
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Khachhang>()
